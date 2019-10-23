@@ -1,55 +1,26 @@
-import { films } from '../assets/films.js'
-import { people } from '../assets/people.js'
+import { films } from './assets/films.js'
+import { people } from './assets/people.js'
  
 console.log('hey, I am JavaScript on your page!')
  
 let mainHeader = document.querySelector('header')
 let mainArea = document.querySelector('main')
  
-// films.forEach(function(film) {
-// let filmDiv = document.createElement('div')
-// let title = document.createElement('h1')
-// let crawl = document.createElement('p')
+//  films.forEach(function(film) {
+//  let filmDiv = document.createElement('div')
+//  let title = document.createElement('h1')
+//  let crawl = document.createElement('p')
  
-// filmDiv.appendChild(title)
-// filmDiv.appendChild(crawl)
+//  filmDiv.appendChild(title)
+//  filmDiv.appendChild(crawl)
  
-// title.textContent = film.title
-// crawl.innerText = film.opening_crawl
+//  title.textContent = film.title
+//  crawl.innerText = film.opening_crawl
  
-// mainArea.appendChild(filmDiv)
-// })
- 
- 
- 
-const maleCharacters = people.filter(persons => person.gender === 'male')
-const femaleCharacters = people.filter(persons => person.gender === 'female')
-const otherCharacters = people.filter(persons => person.gender !== 'female' & person.gender )
-const allDivs = Array.from(mainArea.querySelectorAll('div'))
- 
-let maleButton = document.createElement('button')
-maleButton.textContent = "Male Characters"
-maleButton.addEventListener('click', () => {
-    console.log(elt)
-    maleCharacters.forEach(elt => {
-    let matchedDiv = allDivs.filter(element => {
-            return element.firstChild.textContent === elt.name
-        })
-        
-        matchedDiv.setAttribute("stlye", "display: none;")
-    })
-    femaleCharacters.forEach(elt => {
-        //elt.setAttribute('style', 'visibility: hidden;');
-    })
-})
-let femaleButton = document.createElement('button')
-femaleButton.textContent = "female Characters"
-femaleButton.addEventListener('click', () => {
-    
-})
-mainHeader.appendChild(maleButton)
-mainHeader.appendChild(femaleButton)
- 
+//  mainArea.appendChild(filmDiv)
+//  })
+
+
  
 people.forEach(function(person) {
     let personDiv = document.createElement('div')
@@ -79,4 +50,38 @@ function getCharNumber(charURL) {
         return charID
     }
 }
+const maleCharacters = people.filter(person => person.gender === 'male')
+const femaleCharacters = people.filter(person => person.gender === 'female')
+const otherCharacters = people.filter(person => person.gender !== 'female' && person.filter !== 'male')
+const allDivs = Array.from(mainArea.querySelectorAll('div'))
+
+let maleButton = document.createElement('button')
+maleButton.textContent = "Male Characters"
+maleButton.addEventListener('click', () => {
+  maleCharacters.forEach(elt => {
+      let matchedDiv = allDivs.filter(element => {
+        return element.firstChild.textContent == elt.name
+      })
+      matchedDiv[0].setAttribute("style", "display: none;")
+    })
+  femaleCharacters.forEach(elt => {
+
+  })
+ })
+let femaleButton = document.createElement('button')
+femaleButton.textContent = "Female Characters"
+femaleButton.addEventListener('click', () => {
+    femaleCharacters.forEach(elt => {
+        let matchedDiv = allDivs.filter(element => {
+          return element.firstChild.textContent == elt.name
+        })
+        matchedDiv[0].setAttribute("style", "display: none;")
+      })
+    maleCharacters.forEach(elt => {
+  
+    })
+   })
+
+mainHeader.appendChild(maleButton)
+mainHeader.appendChild(femaleButton)
  
