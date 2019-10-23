@@ -1,0 +1,18 @@
+main {
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-gap: 2rem;
+}
+ 
+header {
+  display: flex;
+  justify-content: center;
+}
+ 
+button {
+  padding: 20px;
+  font-size: 1.5 rem;
+  border-radius: 10% / 50%;
+  background-color: bisque;
+  visibility: visible;
+}
