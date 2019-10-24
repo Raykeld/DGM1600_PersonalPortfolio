@@ -1,6 +1,6 @@
 main {
     display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   grid-gap: 2rem;
   width: 100%;
   max-width: 1200px;
@@ -11,6 +11,7 @@ main {
 header {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
  
 button {
@@ -26,7 +27,20 @@ body {
   color: white;
 }
 
-h1 {
-  text-align: center;
-  color: red;
+h3, p {
+  margin: 0px;
+}
+
+img {
+  width: 120px;
+  ;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid red;
+  padding: 6px;
+  font-size: .8rem;
 }

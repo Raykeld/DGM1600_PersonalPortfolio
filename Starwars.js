@@ -1,5 +1,5 @@
-import { films } from './assets/films.js'
-import { people } from './assets/people.js'
+import { films } from '../assets/films.js'
+import { people } from '../assets/people.js'
  
 console.log('hey, I am JavaScript on your page!')
  
@@ -24,7 +24,7 @@ let mainArea = document.querySelector('main')
  
 people.forEach(function(person) {
     let personDiv = document.createElement('div')
-    let name = document.createElement('h1')
+    let name = document.createElement('h3')
     let gender = document.createElement('p')
     let pic = document.createElement('img')
  
@@ -48,7 +48,7 @@ function getCharNumber(charURL) {
         return charID.slice()
     } else {
         return charID
-    }
+    } 
 }
 const maleCharacters = people.filter(person => person.gender === 'male')
 const femaleCharacters = people.filter(person => person.gender === 'female')
@@ -58,7 +58,7 @@ const allDivs = Array.from(mainArea.querySelectorAll('div'))
 let maleButton = document.createElement('button')
 maleButton.textContent = "Male Characters"
 maleButton.addEventListener('click', () => {
-  maleCharacters.forEach(elt => {
+  femaleCharacters.forEach(elt => {
       let matchedDiv = allDivs.filter(element => {
         return element.firstChild.textContent == elt.name
       })
@@ -71,7 +71,7 @@ maleButton.addEventListener('click', () => {
 let femaleButton = document.createElement('button')
 femaleButton.textContent = "Female Characters"
 femaleButton.addEventListener('click', () => {
-    femaleCharacters.forEach(elt => {
+    maleCharacters.forEach(elt => {
         let matchedDiv = allDivs.filter(element => {
           return element.firstChild.textContent == elt.name
         })
