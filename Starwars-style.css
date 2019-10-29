@@ -22,13 +22,13 @@ button {
   padding: 20px;
   font-size: 1.5 rem;
   border-radius: 10% / 50%;
-  background-color: red;
+  background-color: #F2B999;
   visibility: visible;
 }
 
 body {
-  background: black;
-  color: white;
+  background: #024959;
+  color: #F29F05;
 }
 
 h3, p {
@@ -44,7 +44,8 @@ div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid red;
+  border: 1px solid #F2B999;
   padding: 6px;
   font-size: .8rem;
+  color: #F29F05;
 }
