@@ -7,7 +7,6 @@ body {
   font-family: 'Open Sans', 'sans-serif';
   background-color: #4184BF;
   color: #444;
-
 }
 
 h1, p {
@@ -23,7 +22,6 @@ h1, p {
 .content {
   float: right;
   width: 79.7872%;
-
 }
 .wrapper {
   max-width: 1280px;
@@ -55,4 +53,4 @@ h1, p {
     width: auto;
     margin: 0;
   }
-
+}
