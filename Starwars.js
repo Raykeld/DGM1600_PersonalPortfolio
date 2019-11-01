@@ -58,9 +58,9 @@ const allDivs = Array.from(mainArea.querySelectorAll('div'))
 let maleButton = document.createElement('button')
 maleButton.textContent = "Male Characters"
 maleButton.addEventListener('click', () => {
-  femaleCharacters.forEach(elt => {
-      let matchedDiv = allDivs.filter(element => {
-        return element.firstChild.textContent == elt.name
+  femaleCharacters.forEach(character => {
+      let matchedDiv = allDivs.find(oneDive => {
+        return oneDiv.firstChild.textContent == character.name
       })
       matchedDiv[0].setAttribute("style", "display: none;")
     })
