@@ -59,28 +59,32 @@ let maleButton = document.createElement('button')
 maleButton.textContent = "Male Characters"
 maleButton.addEventListener('click', () => {
   femaleCharacters.forEach(character => {
-      let matchedDiv = allDivs.find(oneDive => {
+      let matchedDiv = allDivs.find(oneDiv => {
         return oneDiv.firstChild.textContent == character.name
       })
-      matchedDiv[0].setAttribute("style", "display: none;")
+      if(matchedDiv.getAttribute("style") === "display: none;") {
+        matchedDiv.setAttribute("style", "display: revert;")
+      } else {
+        matchedDiv.setAttribute("style", "display: none;")
+      }
     })
-  femaleCharacters.forEach(elt => {
-
-  })
  })
-let femaleButton = document.createElement('button')
+
+ let femaleButton = document.createElement('button')
 femaleButton.textContent = "Female Characters"
 femaleButton.addEventListener('click', () => {
-    maleCharacters.forEach(elt => {
-        let matchedDiv = allDivs.filter(element => {
-          return element.firstChild.textContent == elt.name
-        })
-        matchedDiv[0].setAttribute("style", "display: none;")
+  maleCharacters.forEach(character => {
+      let matchedDiv = allDivs.find(oneDiv => {
+        return oneDiv.firstChild.textContent == character.name
       })
-    maleCharacters.forEach(elt => {
-  
+      if(matchedDiv.getAttribute("style") === "display: none;") {
+        matchedDiv.setAttribute("style", "display: revert;")
+      } else {
+        matchedDiv.setAttribute("style", "display: none;")
+      }
     })
-   })
+ })
+
 
 mainHeader.appendChild(maleButton)
 mainHeader.appendChild(femaleButton)
