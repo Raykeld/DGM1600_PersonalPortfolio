@@ -48,3 +48,7 @@ function getPokeNumber(id) {
         return `0${id}`
     } else return id    
 } 
+var pokeflip = document.querySelector('.card');
+pokeflip.addEventListener( 'click', function() {
+  pokeflip.classList.toggle('is-flipped');
+});
