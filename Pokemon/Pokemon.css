@@ -12,4 +12,7 @@ img {
     width: 120px;
 }
 
-body { font-family: sans-serif; }
+div {
+  border: 1px solid blue;
+  text-align: center;
+}
