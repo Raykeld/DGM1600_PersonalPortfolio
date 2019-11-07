@@ -12,7 +12,6 @@ img {
     width: 120px;
 }
 
-
 body { font-family: sans-serif; }
 
 .scene {
@@ -49,11 +48,11 @@ body { font-family: sans-serif; }
 }
 
 .card__face--front {
-  background: red;
+  background:white;
 }
 
 .card__face--back {
-  /* background: blue; */
+  /* background: blue; */ 
   transform: rotateY(180deg);
 }
 
@@ -62,6 +61,6 @@ p {
   position: absolute;
   bottom: 0px;
   margin: 0px;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 0rem;
 }

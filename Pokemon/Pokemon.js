@@ -13,7 +13,7 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
     for (const pokemon of data.results) {
         getAPIData(pokemon.url)
         .then(pokedata => {
-            populationDOM(pokedata)
+            populateDOM(pokedata)
         })
     }
 })
@@ -21,16 +21,15 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
 
 let mainArea = document.querySelector('main')
 
-function populationDOM(single_pokemon) {
+function populateDOM(single_pokemon) {
         let pokeScene = document.createElement('div')
         let pokeCard = document.createElement('div')
         let pokeFront = document.createElement('div')
         let pokeBack = document.createElement('div')
-        let pokeDiv = document.createElement('div')
         let name = document.createElement('p')
         let pic = document.createElement('img')
 
-        fillCardBack(pokeBack, single_pokemon)
+        // fillCardBack(pokeBack, single_pokemon)
 
         pokeScene.setAttribute('class', 'scene')
         pokeCard.setAttribute('class', 'card')
@@ -51,17 +50,17 @@ function populationDOM(single_pokemon) {
         pokeScene.appendChild(pokeCard)
 
 
-        mainArea.appendChild(pokeDiv)
+        mainArea.appendChild(pokeScene)
 
         pokeCard.addEventListener( 'click', function() {
             pokeCard.classList.toggle('is-flipped');
         });
 }
 
-function fillCardBack(pokeBack, data) {
-    let pokeOrder = document.createElement('p').textContent = pokeBack.order
-    pokeBack.appendChild(pokeOrder)
-}
+// function fillCardBack(pokeBack, data) {
+//     let pokeOrder = document.createElement('p').textContent = pokeBack.order
+//     pokeBack.appendChild(pokeOrder)
+// }
 
 function getPokeNumber(id) {
     if(id < 10) return `00${id}`
