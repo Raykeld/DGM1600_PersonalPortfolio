@@ -6,10 +6,13 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   margin-bottom: 6rem;
+  
 }
 
 img {
-    width: 120px;
+  width: 130px;
+    display: flex;
+    justify-content: center;
 }
 
 body { font-family: sans-serif; }
@@ -49,6 +52,8 @@ body { font-family: sans-serif; }
 
 .card__face--front {
   background:white;
+  display: flex;
+  flex-direction: column;
 }
 
 .card__face--back {
@@ -58,7 +63,8 @@ body { font-family: sans-serif; }
 
 
 p {
-  position: absolute;
+  display: flex;
+  justify-content: center;
   bottom: 0px;
   margin: 0px;
   font-size: 15px;
