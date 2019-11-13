@@ -1,4 +1,19 @@
+header {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 50px;
+  color: blue;
+  padding-bottom: 20px;
+  border-bottom: 1px solid red;
+}
+
+button {
+  border: 1px solid blue;
+ margin: 0 auto;
+}
+
 main {
+  padding-top: 40px ;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   grid-gap: 5rem;

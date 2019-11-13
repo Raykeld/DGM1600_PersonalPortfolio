@@ -52,7 +52,8 @@ function populateDOM(single_pokemon) {
         pokeCard.addEventListener( 'click', function() {
             pokeCard.classList.toggle('is-flipped');
         })
-}
+    }
+
 
  function fillCardFront(pokeFront, data) {
      pokeFront.setAttribute('class', 'card__face card__face--front')
