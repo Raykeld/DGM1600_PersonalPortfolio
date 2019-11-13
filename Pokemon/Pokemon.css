@@ -1,10 +1,16 @@
-header {
-  text-align: center;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 50px;
-  color: blue;
-  padding-bottom: 20px;
-  border-bottom: 1px solid red;
+body {
+  background: cornflowerblue;
+}
+
+img {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+#Pokemon-Header {
+  display: flex;
+  justify-content: center;
 }
 
 button {
@@ -77,15 +83,9 @@ body { font-family: sans-serif; }
 }
 
 .card__face--back {
-  /* background: blue; */ 
+  background-image: url(/images/pokeback1.png);
   transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
 }
-/* 
-
-p {
-  bottom: 0px;
-  margin: 0px;
-  font-size: 15px;
-} */
-
 
