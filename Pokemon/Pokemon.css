@@ -35,10 +35,11 @@ main {
 }
 
 p {
+  text-align: center;
   bottom: 0px;
   margin: 0px;
   font-size: 15px;
-  line-height: 0px;
+  line-height: 20px;
 }
 
 
@@ -83,9 +84,6 @@ body { font-family: sans-serif; }
 }
 
 .card__face--back {
-  background-image: url(/images/pokeback1.png);
+ background-color: red;
   transform: rotateY(180deg);
-  display: flex;
-  align-items: center;
 }
-
