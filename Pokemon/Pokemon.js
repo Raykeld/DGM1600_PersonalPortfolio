@@ -29,6 +29,7 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
     for (const pokemon of data.results) {
         getAPIData(pokemon.url).then(pokedata => {
             populateDOM(pokedata)
+            populateDOM(Mew)
             populateDOM(Mewtwo)
         })
     }
@@ -79,10 +80,15 @@ function populateDOM(single_pokemon) {
        pokeBack.setAttribute('class', 'card__face card__face--back')
        let pokeOrder = document.createElement('p')
        let pokeHP = document.createElement('h5')
+       let pic1 = document.createElement('back-background')
        pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
        //pokeHP.textContent = data.stats[0].base_stat
+       pic1.src = `../images/pokeback1.png`
+
+
        pokeBack.appendChild(pokeOrder)
        pokeBack.appendChild(pokeHP)
+       pokeBack.appendChild(pic1)
     
    }
  

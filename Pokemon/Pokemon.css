@@ -84,6 +84,7 @@ body { font-family: sans-serif; }
 }
 
 .card__face--back {
- background-color: red;
   transform: rotateY(180deg);
 }
+
+b
