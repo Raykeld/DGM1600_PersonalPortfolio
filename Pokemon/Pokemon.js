@@ -80,15 +80,15 @@ function populateDOM(single_pokemon) {
        pokeBack.setAttribute('class', 'card__face card__face--back')
        let pokeOrder = document.createElement('p')
        let pokeHP = document.createElement('h5')
-       let pic1 = document.createElement('back-background')
+       let pokeType = document.createElement('p')
        pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
-       //pokeHP.textContent = data.stats[0].base_stat
-       pic1.src = `../images/pokeback1.png`
-
-
+       pokeHP.textContent = data.stats[0].base_stat
+       pokeType.textContent = `${data.type}`
        pokeBack.appendChild(pokeOrder)
        pokeBack.appendChild(pokeHP)
-       pokeBack.appendChild(pic1)
+       pokeBack.appendChild(pokeType)
+       console.log(pokeType)
+       
     
    }
  
