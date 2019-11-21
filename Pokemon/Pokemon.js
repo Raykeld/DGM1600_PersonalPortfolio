@@ -13,7 +13,7 @@ const Mew = new Pokemon(151, 'Mew', 100);
 document.querySelector('#pokeButton').addEventListener('click', () => {
     let pokeId = prompt("Provide the Pokemon ID you want to add:")
     let pokeIdnum = parseInt(pokeId, 10)
-    if(pokeIdnum < 807) {
+    if(pokeIdnum > 807) {
         alert('That pokemon ID doesnt not exist! Please enter a different ID')
         return
     } else {
