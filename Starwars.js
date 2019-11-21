@@ -52,7 +52,6 @@ function getCharNumber(charURL) {
 }
 const maleCharacters = people.filter(person => person.gender === 'male')
 const femaleCharacters = people.filter(person => person.gender === 'female')
-const otherCharacters = people.filter(person => person.gender !== 'female' && person.filter !== 'male')
 const allDivs = Array.from(mainArea.querySelectorAll('div'))
 
 let maleButton = document.createElement('button')

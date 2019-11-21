@@ -6,6 +6,7 @@ img {
   width: 400px;
   display: flex;
   justify-content: center;
+  
 }
 
 #Pokemon-Header {
@@ -33,15 +34,19 @@ main {
 }
 
 .picDivs {
-  width: 180px;
+  width: 178px; 
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
 
 p {
   text-align: center;
   bottom: 0px;
-  margin: 0px;
   font-size: 15px;
-  line-height: 20px;
+  line-height: 40px;
 }
 
 
@@ -86,9 +91,11 @@ body { font-family: sans-serif; }
 
 .card__face--back {
   transform: rotateY(180deg);
+  background: crimson;
 }
 
 button {
+  text-align: center;
   width: 150px;
   height: 80px;
   background-color: blue;

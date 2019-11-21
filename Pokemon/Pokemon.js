@@ -10,6 +10,20 @@ class Pokemon {
 
 const Mew = new Pokemon(151, 'Mew', 100);
 
+document.querySelector('#getHP').addEventListener('click', getHP(151))
+
+function getHP(pokemonID) {
+    getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`)
+    .then(element => {
+        // console.log(muddsy.stats[5].stat.name)
+        const HP = element.stats.find(element => {
+            return element.stat.name === 'hp'
+        })
+        return HP.base_stat
+    })
+}
+
+
 document.querySelector('#pokeButton').addEventListener('click', () => {
     let pokeId = prompt("Provide the Pokemon ID you want to add:")
     let pokeIdnum = parseInt(pokeId, 10)
@@ -39,7 +53,7 @@ async function getAPIData(url) {
 
 
 
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=151')
 .then(data  => {
     for (const pokemon of data.results) {
         getAPIData(pokemon.url).then(pokedata => {
@@ -52,6 +66,7 @@ let mainHeader = document.querySelector('header')
 let mainArea = document.querySelector('main')
 
 function populateDOM(single_pokemon) {
+
         let pokeScene = document.createElement('div')
         let pokeCard = document.createElement('div')
         let pokeFront = document.createElement('div')
@@ -71,6 +86,7 @@ function populateDOM(single_pokemon) {
 
         pokeCard.addEventListener( 'click', function() {
             pokeCard.classList.toggle('is-flipped');
+            single_pokemon.hp = getHP(single_pokemon.id)
         })
     }
 
@@ -82,8 +98,8 @@ function populateDOM(single_pokemon) {
      pic.setAttribute('class', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
     pokeFront.appendChild(name)
-    name.textContent = `${data.name}`
-    //pic.src = `../images/${pokeNum + "MS"}.png`
+    name.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)}`
+    
     pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
     
    pokeFront.appendChild(pic)
@@ -93,12 +109,17 @@ function populateDOM(single_pokemon) {
    function fillCardBack(pokeBack, data) {
        pokeBack.setAttribute('class', 'card__face card__face--back')
        let pokeOrder = document.createElement('p')
-       let pokeHP = document.createElement('h5')
+       let pokeHP = document.createElement('p')
+       let pokeAttack = document.createElement('p')
+       let pokeDefence = document.createElement('p')
        pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
-    //    pokeHP.textContent = data.stats[0].base_stat
-    //    pokeOrder.textContent = `${data.type[1].type.name}`
-       pokeBack.appendChild(pokeHP)
+       pokeHP.textContent = 'HP: ' + getHP(data.id)
+       pokeAttack.textContent = 'Attack: ' + data.stats[3].base_stat
+       pokeDefence.textContent = 'Defence: ' + data.stats[4].base_stat
        pokeBack.appendChild(pokeOrder)
+       pokeBack.appendChild(pokeHP)
+       pokeBack.appendChild(pokeAttack)
+       pokeBack.appendChild(pokeDefence)
        
     
    }
@@ -110,27 +131,4 @@ function getPokeNumber(id) {
         return `0${id}`
     } else return id 
 } 
-
-let grassButton = document.createElement('button')
-grassButton.textContent = "Grass"
-
-let fireButton = document.createElement('button')
-fireButton.textContent = "Fire"
-
-let waterButton = document.createElement('button')
-waterButton.textContent = "Water"
-
-let bugButton = document.createElement('button')
-bugButton.textContent = "Bug"
-
-let flyingButton = document.createElement('button')
-flyingButton.textContent = "Flying"
-
-
-
-mainHeader.appendChild(grassButton)
-mainHeader.appendChild(fireButton)
-mainHeader.appendChild(waterButton)
-mainHeader.appendChild(bugButton)
-mainHeader.appendChild(flyingButton)
 
