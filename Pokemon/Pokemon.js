@@ -13,18 +13,18 @@ const Mew = new Pokemon(151, 'Mew', 100);
 document.querySelector('#pokeButton').addEventListener('click', () => {
     let pokeId = prompt("Provide the Pokemon ID you want to add:")
     let pokeIdnum = parseInt(pokeId, 10)
-    if(!pokeIdnum < 807) {
+    if(pokeIdnum < 807) {
         alert('That pokemon ID doesnt not exist! Please enter a different ID')
         return
     } else {
-    }
-getAPIData(`https://pokeapi.co/api/v2/${pokeId}`)
+    
+getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
     .then(result => {
         //let newPokemon = new Pokemon(results)
     populateDOM(result)
     })
     .catch(error => console.log(error))
-    
+    }
 })
 
 async function getAPIData(url) {
@@ -94,13 +94,11 @@ function populateDOM(single_pokemon) {
        pokeBack.setAttribute('class', 'card__face card__face--back')
        let pokeOrder = document.createElement('p')
        let pokeHP = document.createElement('h5')
-       let pokeType = document.createElement('p')
        pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
     //    pokeHP.textContent = data.stats[0].base_stat
-       pokeType.textContent = `${data.type[0].type.name}`
+    //    pokeOrder.textContent = `${data.type[1].type.name}`
        pokeBack.appendChild(pokeHP)
-       pokeBack.appendChild(pokeType)
-       console.log(pokeType)
+       pokeBack.appendChild(pokeOrder)
        
     
    }
