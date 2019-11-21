@@ -10,7 +10,7 @@ class Pokemon {
 
 const Mew = new Pokemon(151, 'Mew', 100);
 
-document.querySelector('#getHP').addEventListener('click', getHP(151))
+document.querySelector('#getHP').addEventListener('click', getHP(25))
 
 function getHP(pokemonID) {
     getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`)
@@ -53,11 +53,12 @@ async function getAPIData(url) {
 
 
 
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=151')
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=25')
 .then(data  => {
     for (const pokemon of data.results) {
         getAPIData(pokemon.url).then(pokedata => {
             populateDOM(pokedata)
+            // console.log(pokedata.types[0].type)
         })
     }
 })
@@ -92,6 +93,18 @@ function populateDOM(single_pokemon) {
 
 
  function fillCardFront(pokeFront, data) {
+//    console.log(data.types[0].type.name)
+   
+    if(data.types[0].type.name === "electric") {
+        console.log('test')
+    }
+    switch (data.types[0].type.name) {
+        case "electric":
+                pokeFront.classList.add('poison');
+        break;
+    }
+
+
      pokeFront.setAttribute('class', 'card__face card__face--front')
      let name = document.createElement('p')
      let pic = document.createElement('img')
@@ -99,11 +112,12 @@ function populateDOM(single_pokemon) {
     let pokeNum = getPokeNumber(data.id)
     pokeFront.appendChild(name)
     name.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)}`
-    
     pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
     
    pokeFront.appendChild(pic)
    pokeFront.appendChild(name)
+
+
  }
 
    function fillCardBack(pokeBack, data) {
@@ -112,14 +126,17 @@ function populateDOM(single_pokemon) {
        let pokeHP = document.createElement('p')
        let pokeAttack = document.createElement('p')
        let pokeDefence = document.createElement('p')
+       let pokeType = document.createElement('p')
        pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
        pokeHP.textContent = 'HP: ' + getHP(data.id)
        pokeAttack.textContent = 'Attack: ' + data.stats[3].base_stat
        pokeDefence.textContent = 'Defence: ' + data.stats[4].base_stat
+       pokeType.textContent = `Type: ${data.types[1].type.name}`;
        pokeBack.appendChild(pokeOrder)
        pokeBack.appendChild(pokeHP)
        pokeBack.appendChild(pokeAttack)
        pokeBack.appendChild(pokeDefence)
+       pokeBack.appendChild(pokeType)
        
     
    }

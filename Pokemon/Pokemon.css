@@ -46,7 +46,7 @@ p {
   text-align: center;
   bottom: 0px;
   font-size: 15px;
-  line-height: 40px;
+  line-height: 20px;
 }
 
 
@@ -67,6 +67,7 @@ body { font-family: sans-serif; }
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
+  
 }
 
 .card.is-flipped {
@@ -83,6 +84,8 @@ body { font-family: sans-serif; }
   font-weight: bold;
   font-size: 40px;
   backface-visibility: hidden;
+  border-radius: 10px;
+  border: 10px solid yellow;
 }
 
 .card__face--front {
