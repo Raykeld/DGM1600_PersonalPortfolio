@@ -95,14 +95,14 @@ function populateDOM(single_pokemon) {
  function fillCardFront(pokeFront, data) {
 //    console.log(data.types[0].type.name)
    
-    if(data.types[0].type.name === "electric") {
-        console.log('test')
-    }
-    switch (data.types[0].type.name) {
-        case "electric":
-                pokeFront.classList.add('poison');
-        break;
-    }
+    // if(data.types[0].type.name === "electric") {
+    //     console.log('test')
+    // }
+    // switch (data.types[0].type.name) {
+    //     case "card__face card__face--front":
+    //             pokeFront.classList.add('poison');
+    //     break;
+    // }
 
 
      pokeFront.setAttribute('class', 'card__face card__face--front')
@@ -127,17 +127,20 @@ function populateDOM(single_pokemon) {
        let pokeAttack = document.createElement('p')
        let pokeDefence = document.createElement('p')
        let pokeType = document.createElement('p')
+       let pic = document.createElement('img')
+       pic.setAttribute('class', 'picBack')
        pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
        pokeHP.textContent = 'HP: ' + getHP(data.id)
        pokeAttack.textContent = 'Attack: ' + data.stats[3].base_stat
        pokeDefence.textContent = 'Defence: ' + data.stats[4].base_stat
-       pokeType.textContent = `Type: ${data.types[1].type.name}`;
+       pokeType.textContent = `Type: ${data.types[0].type.name}`;
        pokeBack.appendChild(pokeOrder)
        pokeBack.appendChild(pokeHP)
        pokeBack.appendChild(pokeAttack)
        pokeBack.appendChild(pokeDefence)
        pokeBack.appendChild(pokeType)
-       
+       pokeBack.appendChild(pic)
+       pic.src = `http://www.rigelatin.net/copycat/media/cards/back/ancientmewback.jpg`
     
    }
  
