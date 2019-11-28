@@ -133,7 +133,7 @@ function populateDOM(single_pokemon) {
        pokeHP.textContent = 'HP: ' + getHP(data.id)
        pokeAttack.textContent = 'Attack: ' + data.stats[3].base_stat
        pokeDefence.textContent = 'Defence: ' + data.stats[4].base_stat
-       pokeType.textContent = `Type: ${data.types[0].type.name}`;
+       pokeType.textContent = `Type: ${data.types[0 && 1].type.name}`;
        pokeBack.appendChild(pokeOrder)
        pokeBack.appendChild(pokeHP)
        pokeBack.appendChild(pokeAttack)
