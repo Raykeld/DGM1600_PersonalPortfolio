@@ -93,16 +93,16 @@ function populateDOM(single_pokemon) {
 
 
  function fillCardFront(pokeFront, data) {
-//    console.log(data.types[0].type.name)
+   console.log(data.types[0].type.name)
    
-    // if(data.types[0].type.name === "electric") {
-    //     console.log('test')
-    // }
-    // switch (data.types[0].type.name) {
-    //     case "card__face card__face--front":
-    //             pokeFront.classList.add('poison');
-    //     break;
-    // }
+    if(data.types[0].type.name === "electric") {
+        console.log('test')
+    }
+    switch (data.types[0].type.name) {
+        case "card__face card__face--front":
+                pokeFront.classList.add('poison');
+        break;
+    }
 
 
      pokeFront.setAttribute('class', 'card__face card__face--front')
