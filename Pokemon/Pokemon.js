@@ -88,21 +88,23 @@ function populateDOM(single_pokemon) {
         pokeCard.addEventListener( 'click', function() {
             pokeCard.classList.toggle('is-flipped');
             single_pokemon.hp = getHP(single_pokemon.id)
-        })
+
+            pokeCard.addEventListener("mouseover", function() {
+            let type = single_pokemon.types[0].type.name
+    pokeCard.setAttribute("style", `border: 4px solid ${color(type)};`)
+    "style",  `border: 1px solid ${color(type)}`
+  })
+
+  pokeCard.addEventListener("mouseout", function() {
+    pokeCard.setAttribute("style", "border: none;")
+  })
+})
+
     }
 
 
  function fillCardFront(pokeFront, data) {
    console.log(data.types[0].type.name)
-   
-    if(data.types[0].type.name === "electric") {
-        console.log('test')
-    }
-    switch (data.types[0].type.name) {
-        case "card__face card__face--front":
-                pokeFront.classList.add('poison');
-        break;
-    }
 
 
      pokeFront.setAttribute('class', 'card__face card__face--front')
@@ -124,23 +126,29 @@ function populateDOM(single_pokemon) {
        pokeBack.setAttribute('class', 'card__face card__face--back')
        let pokeOrder = document.createElement('p')
        let pokeHP = document.createElement('p')
-       let pokeAttack = document.createElement('p')
-       let pokeDefence = document.createElement('p')
        let pokeType = document.createElement('p')
+       let pokeAb = document.createElement('h5')
+       let pokeAbilities = document.createElement('p')
        let pic = document.createElement('img')
+       pokeAb.textContent = 'Abilities:'
        pic.setAttribute('class', 'picBack')
        pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
        pokeHP.textContent = 'HP: ' + getHP(data.id)
-       pokeAttack.textContent = 'Attack: ' + data.stats[3].base_stat
-       pokeDefence.textContent = 'Defence: ' + data.stats[4].base_stat
-       pokeType.textContent = `Type: ${data.types[0 && 1].type.name}`;
+       pokeType.textContent = `Type: ${data.types.map(t => t.type.name)}`;
+       pokeAbilities.innerHTML = data.abilities
+       .map(a => a.ability.name)
+       .reduce(
+         (accumulator, currentValue) =>
+           (accumulator += `<li class="pokeability">${currentValue}</li>`),
+         '',
+       )
        pokeBack.appendChild(pokeOrder)
        pokeBack.appendChild(pokeHP)
-       pokeBack.appendChild(pokeAttack)
-       pokeBack.appendChild(pokeDefence)
        pokeBack.appendChild(pokeType)
        pokeBack.appendChild(pic)
-       pic.src = `http://www.rigelatin.net/copycat/media/cards/back/ancientmewback.jpg`
+       pokeBack.appendChild(pokeAb)
+       pokeBack.appendChild(pokeAbilities)
+    //    pic.src = `http://www.rigelatin.net/copycat/media/cards/back/ancientmewback.jpg`
     
    }
  
