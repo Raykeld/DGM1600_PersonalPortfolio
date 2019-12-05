@@ -83,24 +83,22 @@ function populateDOM(single_pokemon) {
         pokeScene.appendChild(pokeCard)
 
         mainArea.appendChild(pokeScene)
-
-
-        pokeCard.addEventListener( 'click', function() {
-            pokeCard.classList.toggle('is-flipped');
-            single_pokemon.hp = getHP(single_pokemon.id)
-
-            pokeCard.addEventListener("mouseover", function() {
+        
+        pokeCard.addEventListener("mouseover", function() {
             let type = single_pokemon.types[0].type.name
-    pokeCard.setAttribute("style", `border: 4px solid ${color(type)};`)
-    "style",  `border: 1px solid ${color(type)}`
+    pokeCard.setAttribute("style", `background: ${color(type)};`)
+    "style",  `background: ${color(type)}`
   })
 
   pokeCard.addEventListener("mouseout", function() {
-    pokeCard.setAttribute("style", "border: none;")
+    pokeCard.setAttribute("style", "background: none;")
   })
-})
 
-    }
+        pokeCard.addEventListener( 'click', function() {
+            pokeCard.classList.toggle('is-flipped');
+            
+  })
+}
 
 
  function fillCardFront(pokeFront, data) {
@@ -125,15 +123,13 @@ function populateDOM(single_pokemon) {
    function fillCardBack(pokeBack, data) {
        pokeBack.setAttribute('class', 'card__face card__face--back')
        let pokeOrder = document.createElement('p')
-       let pokeHP = document.createElement('p')
+      
        let pokeType = document.createElement('p')
        let pokeAb = document.createElement('h5')
        let pokeAbilities = document.createElement('p')
-       let pic = document.createElement('img')
        pokeAb.textContent = 'Abilities:'
-       pic.setAttribute('class', 'picBack')
        pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
-       pokeHP.textContent = 'HP: ' + getHP(data.id)
+       
        pokeType.textContent = `Type: ${data.types.map(t => t.type.name)}`;
        pokeAbilities.innerHTML = data.abilities
        .map(a => a.ability.name)
@@ -143,9 +139,8 @@ function populateDOM(single_pokemon) {
          '',
        )
        pokeBack.appendChild(pokeOrder)
-       pokeBack.appendChild(pokeHP)
+       
        pokeBack.appendChild(pokeType)
-       pokeBack.appendChild(pic)
        pokeBack.appendChild(pokeAb)
        pokeBack.appendChild(pokeAbilities)
     //    pic.src = `http://www.rigelatin.net/copycat/media/cards/back/ancientmewback.jpg`
@@ -158,5 +153,44 @@ function getPokeNumber(id) {
     if(id > 9 && id < 100) {
         return `0${id}`
     } else return id 
-} 
+}
 
+function color(type) {
+    if (type === 'fire') {
+      return '#F03924'
+    } else if (type === 'fairy') {
+      return '#F2ACE0'
+    } else if (type === 'fighting') {
+      return '#A60303'
+    } else if (type === 'ghost') {
+      return '#732F67'
+    } else if (type === 'grass') {
+      return '#aede96'
+    } else if (type === 'ground') {
+      return '#A68568'
+    } else if (type === 'ice') {
+      return '#91E0F2'
+    } else if (type === 'normal') {
+      return '#D9D7D7'
+    } else if (type === 'poison') {
+      return '#BF6FB2'
+    } else if (type === 'psychic') {
+      return '#96B9D9'
+    } else if (type === 'flying') {
+      return '#719ED9'
+    } else if (type === 'bug') {
+      return '#A0A603'
+    } else if (type === 'dark') {
+      return '#404040'
+    } else if (type === 'dragon') {
+      return '##888C03'
+    } else if (type === 'electric') {
+      return '#F2E205'
+    } else if (type === 'rock') {
+      return '#736049'
+    } else if (type === 'steel') {
+      return '#A6A6A6'
+    } else if (type === 'water') {
+      return '#05C7F2'
+    }
+  }
