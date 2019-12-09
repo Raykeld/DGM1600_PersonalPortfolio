@@ -22,7 +22,7 @@ h5 {
 
 
 body {
-  background: #0F88F2;
+  background:#132B40;
 }
 
 img {
@@ -42,6 +42,7 @@ header {
   padding-left: 50px;
   padding-right: 50px;
   text-align: center;
+  color: white;
 }
 
 
@@ -130,6 +131,9 @@ body { font-family: sans-serif; }
 
 .card__face--front {
   color: white;
+  background-color: #475759;
+  width: auto;
+  border-radius: 5px;
 }
 
 .card__face--back {
@@ -143,7 +147,7 @@ button {
  text-align: center;
   width: 150px;
   height: 80px;
-  background-color: blue;
+  background-color: #475759;
   color: white;
   font-size: 1.5em;
   border-radius: 10px;

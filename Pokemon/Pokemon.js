@@ -1,27 +1,19 @@
 //data.stats[0].base_stat
 
-class Pokemon {
-    constructor(id, name, stats) {
-        this.id = id
-        this.name = name
-        this.base_stat = stats
-    }
-}
+// class Pokemon {
+//     constructor(id, name, stats) {
+//         this.id = id
+//         this.name = name
+//         this.base_stat = stats
+//     }
+// }
 
-const Mew = new Pokemon(151, 'Mew', 100);
+// const Mew = new Pokemon(151, 'Mew', 100);
 
-document.querySelector('#getHP').addEventListener('click', getHP(25))
 
-function getHP(pokemonID) {
-    getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokemonID}`)
-    .then(element => {
-        // console.log(muddsy.stats[5].stat.name)
-        const HP = element.stats.find(element => {
-            return element.stat.name === 'hp'
-        })
-        return HP.base_stat
-    })
-}
+homeButton.addEventListener('click', () => {
+  document.location.href = '/index.html'
+})
 
 
 document.querySelector('#pokeButton').addEventListener('click', () => {
@@ -90,9 +82,9 @@ function populateDOM(single_pokemon) {
     "style",  `background: ${color(type)}`
   })
 
-  pokeCard.addEventListener("mouseout", function() {
-    pokeCard.setAttribute("style", "background: none;")
-  })
+  // pokeCard.addEventListener("mouseout", function() {
+  //   pokeCard.setAttribute("style", "background: none;")
+  // })
 
         pokeCard.addEventListener( 'click', function() {
             pokeCard.classList.toggle('is-flipped');
