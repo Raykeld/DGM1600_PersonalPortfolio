@@ -78,8 +78,8 @@ function populateDOM(single_pokemon) {
         
         pokeCard.addEventListener("mouseover", function() {
             let type = single_pokemon.types[0].type.name
-    pokeCard.setAttribute("style", `background: ${color(type)};`)
-    "style",  `background: ${color(type)}`
+    pokeCard.setAttribute("style", `background-color: ${color(type)};`)
+    "style",  `background-color: ${color(type)}`
   })
 
   // pokeCard.addEventListener("mouseout", function() {
@@ -118,7 +118,7 @@ function populateDOM(single_pokemon) {
       
        let pokeType = document.createElement('p')
        let pokeAb = document.createElement('h5')
-       let pokeAbilities = document.createElement('p')
+       let pokeAbilities = document.createElement('ol')
        pokeAb.textContent = 'Abilities:'
        pokeOrder.textContent = `#${data.id} ${data.name[0].toUpperCase()}${data.name.slice(1)}`
        

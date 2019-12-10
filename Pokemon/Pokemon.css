@@ -47,9 +47,10 @@ header {
 }
 
 
-
-
-
+ol {
+  font-size: 15px;
+  line-height: 20px;
+}
 
 main {
   padding-top: 20px ;
