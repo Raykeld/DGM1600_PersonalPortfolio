@@ -68,8 +68,6 @@ p {
 
   /* Card flip action */
 
-  body { font-family: sans-serif; }
-
 .scene {
   width: 200px;
   height: 260px;
@@ -79,7 +77,6 @@ p {
   justify-content: center;
   border-color: #000000;
 }
-
 
 body { font-family: sans-serif; }
 
