@@ -1,27 +1,4 @@
 
-
-
-ul {
-  display: inline-block;
-  padding: 0px;
-  margin: 0px;
-}
-
-li {
-  font-family: inherit;
-}
-
-h5 {
-  font-size: 18px;
-  text-align: justify;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 1rem;
-  line-height: 1px;
-}
-
-
-
 body {
   background:#132B40;
 }
@@ -46,6 +23,10 @@ header {
   color: white;
 }
 
+h5 {
+  display: flex;
+text-align: center;
+}
 
 ol {
   font-size: 15px;
